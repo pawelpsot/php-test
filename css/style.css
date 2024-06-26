@@ -1,0 +1,103 @@
+ /* Stylizacja dla nawigacji */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://www.nask.pl/dokumenty/zalaczniki/30/30-3224_g.png');
+            background-size: calc();
+            background-position: center;
+            background-attachment: fixed;
+            color: #000; 
+        }
+        #header {
+			background-color: rgba(0, 0, 0, 1);
+			padding: 20px;
+			text-align: center;
+			position: fixed; 
+			width: 100%; 
+			height: 8vh; 
+			z-index: 999; 
+			top: 0; 
+			margin-top: 0; 
+			padding-top: 0;
+        }
+		#content {
+			padding: 20px;
+			box-sizing: border-box;
+			margin-left: 17%;
+			margin-right: 20px; 
+			margin-top: calc(10vh + 20px);
+			background-color: rgba(255, 255, 255, 0.7); 
+		}
+
+		#navigation {
+			width: 17%;
+			background-color: rgba(0, 0, 0, 1);
+			padding: 20px;
+			box-sizing: border-box;
+			position: fixed; 
+			top: 10vh; 
+			left: 0; 
+			bottom: 0; 
+			overflow-y: auto; 
+			color: #fff;
+		}
+
+        
+        img {
+			width: 80%; /* Zmiana szerokości obrazków na 80% */
+			display: block;
+			margin: 20px auto; 
+			opacity: 1; 
+		}
+        ul {
+            display: none; 
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 5px 0;
+			padding: 1px;
+        }
+        a {
+			color: #fff; 
+			text-decoration: none; 
+			transition: color 0.3s, background-color 0.3s; 
+		}
+
+		a:hover {
+			color: #ff0; 
+		}
+
+		a.active {
+			position: relative; 
+			color: #ff0; 
+			font-weight: bold; 
+		}
+
+		a.active::before {
+			content: '➔'; 
+			position: absolute;
+			left: -20px; 
+			color: #ff0; 
+		}
+
+        h2 {
+            cursor: pointer;
+        }
+        .search-input {
+            width: calc(100% - 40px);
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+		#spacer {
+			height: 1vh; 
+		}
+		.caption {
+			text-align: center;
+			font-size: 30px; /* Adjust the size as needed */
+			color: #000000; /* Change the color as needed */
+		}
+		p { text-indent: 10px; }
+	
