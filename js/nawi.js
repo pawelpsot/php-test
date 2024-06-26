@@ -2,7 +2,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Funkcja do przewijania sekcji
     function toggleSection(sectionId) {
         const section = document.getElementById(sectionId);
-        section.style.display = section.style.display === 'block' ? 'none' : 'block';
+        if (section) {
+            section.style.display = section.style.display === 'block' ? 'none' : 'block';
+        }
     }
 
     // Przypisanie funkcji toggleSection do elementów <h2>
@@ -15,53 +17,57 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Funkcja do filtrowania nawigacji
     function filterNavigation() {
-        const query = document.getElementById('search').value.toLowerCase();
-        const links = document.querySelectorAll('#navigation a');
-        if (query.length >= 3) {
-            links.forEach(link => {
-                const text = link.textContent.toLowerCase();
-                if (text.includes(query)) {
-                    link.parentElement.style.display = 'list-item';
-                    link.closest('ul').style.display = 'block';
-                } else {
-                    link.parentElement.style.display = 'none';
-                }
-            });
-            document.querySelectorAll('#navigation h2').forEach(h2 => h2.style.display = 'block'); // Pokaż wszystkie sekcje nawigacji
-        } else {
-            links.forEach(link => link.parentElement.style.display = 'list-item'); // Pokaż wszystkie linki
-            document.querySelectorAll('#navigation h2').forEach(h2 => h2.style.display = 'block'); // Pokaż wszystkie sekcje nawigacji
-            document.querySelectorAll('#navigation ul').forEach(ul => ul.style.display = 'none'); // Ukryj wszystkie listy
-        }
-    }
-
-    // Funkcja do ustawiania aktywnego linku i rozwijania jego sekcji
-    function setActiveLink() {
+        const query = document.getElementById('search').value.trim().toLowerCase();
         const links = document.querySelectorAll('#navigation a');
         links.forEach(link => {
-            if (link.href === window.location.href) {
-                link.classList.add('active');
-                const parentUl = link.closest('ul');
+            const text = link.textContent.trim().toLowerCase();
+            const parentUl = link.closest('ul');
+            if (text.includes(query)) {
+                link.parentElement.style.display = 'list-item';
                 if (parentUl) {
                     parentUl.style.display = 'block';
                 }
             } else {
-                link.classList.remove('active');
+                link.parentElement.style.display = 'none';
             }
         });
+        // Pokaż wszystkie sekcje nawigacji
+        document.querySelectorAll('#navigation h2').forEach(h2 => h2.style.display = 'block');
     }
 
     // Dodanie obsługi zdarzeń dla pola wyszukiwania
     document.getElementById('search').addEventListener('input', filterNavigation);
-    document.getElementById('search').addEventListener('change', filterNavigation);
 
     // Ustawienie aktywnego linku przy ładowaniu strony
     setActiveLink();
 });
-document.addEventListener("DOMContentLoaded", function() {
-        fetch('navigation.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('navigation').innerHTML = data;
-            });
+
+// Funkcja do ustawiania aktywnego linku i rozwijania jego sekcji
+function setActiveLink() {
+    const links = document.querySelectorAll('#navigation a');
+    links.forEach(link => {
+        if (link.href === window.location.href) {
+            link.classList.add('active');
+            const parentUl = link.closest('ul');
+            if (parentUl) {
+                parentUl.style.display = 'block';
+                // Rozwijanie sekcji nadrzędnej, jeśli link jest aktywny
+                const parentSection = parentUl.previousElementSibling;
+                if (parentSection && parentSection.tagName === 'H2') {
+                    toggleSection(parentSection.getAttribute('data-section'));
+                }
+            }
+        } else {
+            link.classList.remove('active');
+        }
+    });
+}
+
+// Pobranie i wstawienie zawartości nawigacji z pliku navigation.html
+fetch('navigation.html')
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('navigation').innerHTML = data;
+        // Po wstawieniu nawigacji, uruchom funkcje z nawi.js
+        setActiveLink();
     });
