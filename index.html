@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podręcznik ezdrp</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('navigation.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('navigation-container').innerHTML = data;
+                });
+        });
+    </script>
+</head>
+<body>
+
+<div id="spacer"></div> 
+<div id="header">
+    <h1><a href="index.html">Podręcznik ezdrp szpital nr. 4</a></h1>
+</div>
+
+<div id="navigation-container"></div>
+
+<script src="js/zdjecia.js"></script>
+<script src="js/nawi.js"></script>
+<script src="https://unpkg.com/scrollreveal"></script>
+
+</body>
+</html>
