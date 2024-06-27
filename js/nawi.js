@@ -69,5 +69,6 @@ fetch('navigation.html')
     .then(data => {
         document.getElementById('navigation').innerHTML = data;
         // Po wstawieniu nawigacji, uruchom funkcje z nawi.js
+        initializeNavigation();
         setActiveLink();
     });
