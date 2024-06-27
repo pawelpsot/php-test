@@ -1,9 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Funkcja do przewijania sekcji
-    function toggleSection(sectionId) {
+    function toggleSection(sectionId, expandOnly = false) {
         const section = document.getElementById(sectionId);
         if (section) {
-            section.style.display = section.style.display === 'block' ? 'none' : 'block';
+            if (expandOnly) {
+                section.style.display = 'block';
+            } else {
+                section.style.display = section.style.display === 'block' ? 'none' : 'block';
+            }
         }
     }
 
@@ -47,16 +51,20 @@ document.addEventListener('DOMContentLoaded', function() {
     // Funkcja do ustawiania aktywnego linku i rozwijania jego sekcji
     function setActiveLink() {
         const links = document.querySelectorAll('#navigation a');
+        const currentUrl = window.location.href;
+        console.log('Current URL:', currentUrl);
+
         links.forEach(link => {
-            if (link.href === window.location.href) {
+            console.log('Checking link:', link.href);
+            if (link.href === currentUrl) {
                 link.classList.add('active');
+                console.log('Active link:', link.href);
                 const parentUl = link.closest('ul');
                 if (parentUl) {
                     parentUl.style.display = 'block';
-                    // Rozwijanie sekcji nadrzędnej, jeśli link jest aktywny
                     const parentSection = parentUl.previousElementSibling;
                     if (parentSection && parentSection.tagName === 'H2') {
-                        toggleSection(parentSection.getAttribute('data-section'));
+                        toggleSection(parentSection.getAttribute('data-section'), true); // Rozwijaj tylko, nie ukrywaj
                     }
                 }
             } else {
