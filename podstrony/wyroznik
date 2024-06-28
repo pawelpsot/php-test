@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wyróżniki</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div id="spacer"></div> 
+<div id="header">
+    <h1><a href="../index.html">Podręcznik ezdrp szpital nr. 4</a></h1>
+</div>
+
+<div id="navigation"></div>
+
+<div id="content">
+    <img src="../screeny/wyroznik/wyroznik.png" alt="Placeholder zdjęcie 1" data-scroll data-animation="fadeInUp" style="animation-delay: 0.8s;">
+    <img src="../screeny/wyroznik/wyroznik1.png" alt="Placeholder zdjęcie 2" data-scroll data-animation="fadeInUp" style="animation-delay: 0.8s;">
+    <img src="../screeny/wyroznik/wyroznik2.png" alt="Placeholder zdjęcie 3" data-scroll data-animation="fadeInUp" style="animation-delay: 0.8s;">
+    <img src="../screeny/wyroznik/wyroznik3.png" alt="Placeholder zdjęcie 4" data-scroll data-animation="fadeInUp" style="animation-delay: 0.8s;">
+    <img src="../screeny/wyroznik/wyroznik4.png" alt="Placeholder zdjęcie 5" data-scroll data-animation="fadeInUp" style="animation-delay: 0.8s;">
+    <img src="../screeny/wyroznik/wyroznik5.png" alt="Placeholder zdjęcie 6" data-scroll data-animation="fadeInUp" style="animation-delay: 0.8s;">
+    <img src="../screeny/wyroznik/wyroznik6.png" alt="Placeholder zdjęcie 7" data-scroll data-animation="fadeInUp" style="animation-delay: 0.8s;">
+    <img src="../screeny/wyroznik/wyroznik7.png" alt="Placeholder zdjęcie 8" data-scroll data-animation="fadeInUp" style="animation-delay: 0.8s;">
+    <img src="../screeny/wyroznik/wyroznik8.png" alt="Placeholder zdjęcie 9" data-scroll data-animation="fadeInUp" style="animation-delay: 0.8s;">
+    <img src="../screeny/wyroznik/wyroznik9.png" alt="Placeholder zdjęcie 10" data-scroll data-animation="fadeInUp" style="animation-delay: 0.8s;">
+    <img src="../screeny/wyroznik/wyroznik10.png" alt="Placeholder zdjęcie 11" data-scroll data-animation="fadeInUp" style="animation-delay: 0.8s;">
+    <img src="../screeny/wyroznik/wyroznik11.png" alt="Placeholder zdjęcie 12" data-scroll data-animation="fadeInUp" style="animation-delay: 0.8s;">
+
+
+</div>
+
+<script src="../js/zdjecia.js"></script>
+<script src="../js/nawi.js"></script>
+<script src="https://unpkg.com/scrollreveal"></script>
+
+</body>
+</html>
